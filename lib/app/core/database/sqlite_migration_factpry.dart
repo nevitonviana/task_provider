@@ -5,5 +5,5 @@ class SqliteMigrationFactpry {
   List<Migration> getCreateMigration() => [
         MigrationV1(),
       ];
-  List<Migration> getUpgradeMigration() => [];
+  List<Migration> getUpgradeMigration(int version) => [];
 }
