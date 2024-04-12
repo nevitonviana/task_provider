@@ -39,6 +39,7 @@ dependencies:
   sqflite: ^2.3.3
   path: ^1.9.0
   google_fonts: ^6.2.1
+  flutter_signin_button: ^2.0.0
   
 dev_dependencies:
   flutter_test:
