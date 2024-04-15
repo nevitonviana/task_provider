@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../ui/todo_list_icons.dart';
-
 class TodoListField extends StatelessWidget {
   final String label;
   final IconButton? suffixIconButton;

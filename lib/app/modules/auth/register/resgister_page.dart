@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../../core/ui/theme_extensions.dart';
+import '../../../core/widget/todo_list_field.dart';
 import '../../../core/widget/todo_list_logo.dart';
 
 class ResgisterPage extends StatelessWidget {
@@ -53,10 +55,41 @@ class ResgisterPage extends StatelessWidget {
               child: TodoListLogo(),
             ),
           ),
-          Form(
-              child: Column(
-            children: [TodoListLogo()],
-          ))
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+            child: Form(
+                child: Column(
+              children: [
+                TodoListField(label: "E-mail"),
+                const SizedBox(height: 20),
+                TodoListField(
+                  label: "Senha",
+                  obscureText: true,
+                ),
+                const SizedBox(height: 20),
+                TodoListField(
+                  label: "Confimar Senha",
+                  obscureText: true,
+                ),
+                const SizedBox(height: 20),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Text("salvar"),
+                    ),
+                  ),
+                )
+              ],
+            )),
+          )
         ],
       ),
     );
