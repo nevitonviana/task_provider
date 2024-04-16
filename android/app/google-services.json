@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "103139468404",
+    "project_id": "pyflow-b18cb",
+    "storage_bucket": "pyflow-b18cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103139468404:android:0a8829c7d2f3f569529d21",
+        "android_client_info": {
+          "package_name": "com.example.tudo_list_provider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103139468404-f6agh4lu1bfdl570ahmv5pqag2cop955.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvCj4mbcTFKisq-nnpiBuzrdBIJ_k4AIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103139468404-f6agh4lu1bfdl570ahmv5pqag2cop955.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "103139468404-89dgs8nirptprca72ndmejvvg1coa8o1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shoppingDoPet"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103139468404:android:dfd341822705b27d529d21",
+        "android_client_info": {
+          "package_name": "com.nevitonviana.metasfinanceiras.metas_financeira"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103139468404-f6agh4lu1bfdl570ahmv5pqag2cop955.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvCj4mbcTFKisq-nnpiBuzrdBIJ_k4AIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103139468404-f6agh4lu1bfdl570ahmv5pqag2cop955.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "103139468404-89dgs8nirptprca72ndmejvvg1coa8o1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shoppingDoPet"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
