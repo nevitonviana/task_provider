@@ -44,4 +44,20 @@ class UserRepositoryImpl implements UserRepository {
       throw AuthException(message: e.message ?? "erro ao realizar login");
     }
   }
+
+  @override
+  Future<void> forgotPassword(String email) async {
+    try {
+      final loginTypes = await _firebaseAuth.fetchSignInMethodsForEmail(email);
+      if (loginTypes.contains("password")) {
+        await _firebaseAuth.sendPasswordResetEmail(email: email);
+      } else if (loginTypes.contains("google")) {
+        throw AuthException(message: "Voce se cadastrou pelo google");
+      } else {
+        throw AuthException(message: "E-mail nao cadastrado");
+      }
+    } on PlatformException catch (e) {
+      throw AuthException(message: e.message ?? "error ");
+    }
+  }
 }
