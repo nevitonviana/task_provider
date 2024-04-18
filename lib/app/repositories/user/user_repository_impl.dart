@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -63,6 +65,7 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
+  // ignore: body_might_complete_normally_nullable
   Future<User?> googleLogin() async {
     List<String>? loginMethods;
     try {
@@ -100,6 +103,19 @@ Login invalido, voce se registrou no todoList com os seguintes provedores: ${log
       _firebaseAuth.signOut();
     } catch (e) {
       throw AuthException(message: "Error inesperado");
+    }
+  }
+
+  @override
+  Future<void> updateDisplayName(String name) async {
+    try {
+      final user = _firebaseAuth.currentUser;
+      if (user != null) {
+        await user.updateDisplayName(name);
+        user.reload();
+      }
+    } catch (e) {
+      throw Exception(e);
     }
   }
 }
