@@ -5,6 +5,7 @@ import 'core/widget/todo_list_ui_confing.dart';
 import 'modules/auth/auth_module.dart';
 import 'modules/home/home_module.dart';
 import 'modules/splash/splash_page.dart';
+import 'modules/tasks/tasks_module.dart';
 import 'sqlite_adm_connection.dart';
 
 class AppWidget extends StatefulWidget {
@@ -38,6 +39,7 @@ class _AppWidgetState extends State<AppWidget> {
       routes: {
         ...AuthModule().routers,
         ...HomeModule().routers,
+        ...TasksModule().routers,
       },
       home: const SplashPage(),
     );

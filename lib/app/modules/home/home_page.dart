@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/ui/theme_extensions.dart';
+import '../tasks/tasks_module.dart';
 import 'widget/home_drawer.dart';
 import 'widget/home_filters.dart';
 import 'widget/home_header.dart';
@@ -8,6 +9,26 @@ import 'widget/home_tasks.dart';
 import 'widget/home_week_filter.dart';
 
 class HomePage extends StatelessWidget {
+  void _goTOCreateTask(BuildContext context) {
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 400),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          animation =
+              CurvedAnimation(parent: animation, curve: Curves.easeInQuart);
+          return ScaleTransition(
+            scale: animation,
+            alignment: Alignment.bottomRight,
+            child: child,
+          );
+        },
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return TasksModule().getPage("/task/create", context);
+        },
+      ),
+    );
+  }
+
   const HomePage({super.key});
 
   @override
@@ -25,7 +46,9 @@ class HomePage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          _goTOCreateTask(context);
+        },
         backgroundColor: context.primaryColor,
         child: const Icon(Icons.add),
       ),
