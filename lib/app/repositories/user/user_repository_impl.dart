@@ -94,7 +94,7 @@ Login invalido, voce se registrou no todoList com os seguintes provedores: ${log
   }
 
   @override
-  Future<void> googleLogout() async {
+  Future<void> logout() async {
     try {
       await GoogleSignIn().signIn();
       _firebaseAuth.signOut();
