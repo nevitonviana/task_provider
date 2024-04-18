@@ -20,11 +20,13 @@ class _HomeFiltersState extends State<HomeFilters> {
           "Filtros",
           style: context.titleStyle,
         ),
-        SizedBox(height: 10),
-        SingleChildScrollView(
+        const SizedBox(height: 10),
+        const SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [TodoCardFilter()],
+            children: [
+              TodoCardFilter(),
+            ],
           ),
         )
       ],

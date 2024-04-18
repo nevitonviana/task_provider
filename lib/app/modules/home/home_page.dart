@@ -4,6 +4,7 @@ import '../../core/ui/theme_extensions.dart';
 import 'widget/home_drawer.dart';
 import 'widget/home_filters.dart';
 import 'widget/home_header.dart';
+import 'widget/home_tasks.dart';
 import 'widget/home_week_filter.dart';
 
 class HomePage extends StatelessWidget {
@@ -23,6 +24,11 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: context.primaryColor,
+        child: const Icon(Icons.add),
+      ),
       drawer: HomeDrawer(),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -41,6 +47,7 @@ class HomePage extends StatelessWidget {
                       HomeHeader(),
                       HomeFilters(),
                       HomeWeekFilter(),
+                      HomeTasks(),
                     ],
                   ),
                 ),
