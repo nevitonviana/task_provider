@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../core/ui/theme_extensions.dart';
 import 'widget/home_drawer.dart';
+import 'widget/home_filters.dart';
 import 'widget/home_header.dart';
+import 'widget/home_week_filter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -35,7 +37,11 @@ class HomePage extends StatelessWidget {
                 child: const IntrinsicHeight(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [HomeHeader()],
+                    children: [
+                      HomeHeader(),
+                      HomeFilters(),
+                      HomeWeekFilter(),
+                    ],
                   ),
                 ),
               ),
