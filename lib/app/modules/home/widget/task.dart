@@ -31,7 +31,7 @@ class Task extends StatelessWidget {
           ),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
-              side: BorderSide(width: 1)),
+              side: const BorderSide(width: 1)),
         ),
       ),
     );
