@@ -45,39 +45,41 @@ class TodoCardFilter extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(30),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            "${totalTasksModel?.totalTasks ?? 0} TESKS",
-            style: context.titleStyle.copyWith(
-                fontSize: 10, color: selected ? Colors.white : Colors.grey),
-          ),
-          Expanded(
-            child: Text(
-              label,
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: selected ? Colors.white : Colors.black),
+      child: IntrinsicHeight(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "${totalTasksModel?.totalTasks ?? 0} TESKS",
+              style: context.titleStyle.copyWith(
+                  fontSize: 10, color: selected ? Colors.white : Colors.grey),
             ),
-          ),
-          TweenAnimationBuilder<double>(
-            tween: Tween(
-              begin: 0.0,
-              end: _getPercentFinish(),
+            Expanded(
+              child: Text(
+                label,
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: selected ? Colors.white : Colors.black),
+              ),
             ),
-            duration: const Duration(seconds: 1),
-            builder: (context, value, child) => LinearProgressIndicator(
-              backgroundColor:
-                  selected ? context.primaryColorLight : Colors.grey.shade300,
-              valueColor: AlwaysStoppedAnimation<Color>(
-                  selected ? Colors.white : context.primaryColor),
-              value: value,
+            TweenAnimationBuilder<double>(
+              tween: Tween(
+                begin: 0.0,
+                end: _getPercentFinish(),
+              ),
+              duration: const Duration(seconds: 1),
+              builder: (context, value, child) => LinearProgressIndicator(
+                backgroundColor:
+                    selected ? context.primaryColorLight : Colors.grey.shade300,
+                valueColor: AlwaysStoppedAnimation<Color>(
+                    selected ? Colors.white : context.primaryColor),
+                value: value,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

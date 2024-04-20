@@ -2,13 +2,29 @@ import 'package:flutter/material.dart';
 
 import '../../core/ui/theme_extensions.dart';
 import '../tasks/tasks_module.dart';
+import 'home_controller.dart';
 import 'widget/home_drawer.dart';
 import 'widget/home_filters.dart';
 import 'widget/home_header.dart';
 import 'widget/home_tasks.dart';
 import 'widget/home_week_filter.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  final HomeController _homeController;
+  const HomePage({super.key, required HomeController homeController})
+      : _homeController = homeController;
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    widget._homeController.loadTotalTasks();
+  }
+
   void _goTOCreateTask(BuildContext context) {
     Navigator.of(context).push(
       PageRouteBuilder(
@@ -28,8 +44,6 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
-  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

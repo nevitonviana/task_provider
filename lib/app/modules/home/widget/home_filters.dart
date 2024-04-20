@@ -27,10 +27,9 @@ class HomeFilters extends StatelessWidget {
               TodoCardFilter(
                 label: "HOJE",
                 taskFilterEnum: TaskFilterEnum.today,
-                totalTasksModel: const TotalTasksModel(
-                  totalTasks: 10,
-                  totalTasksFinish: 5,
-                ),
+                totalTasksModel:
+                    context.select<HomeController, TotalTasksModel?>(
+                        (controller) => controller.todayTotaltasks),
                 selected: context.select<HomeController, TaskFilterEnum>(
                         (value) => value.filterSelected) ==
                     TaskFilterEnum.today,
@@ -38,10 +37,9 @@ class HomeFilters extends StatelessWidget {
               TodoCardFilter(
                 label: "AMANHÃ",
                 taskFilterEnum: TaskFilterEnum.tomorrow,
-                totalTasksModel: const TotalTasksModel(
-                  totalTasks: 10,
-                  totalTasksFinish: 5,
-                ),
+                totalTasksModel:
+                    context.select<HomeController, TotalTasksModel?>(
+                        (controller) => controller.tomorrowTotaltasks),
                 selected: context.select<HomeController, TaskFilterEnum>(
                         (value) => value.filterSelected) ==
                     TaskFilterEnum.tomorrow,
@@ -49,10 +47,9 @@ class HomeFilters extends StatelessWidget {
               TodoCardFilter(
                 label: "SEMANA",
                 taskFilterEnum: TaskFilterEnum.week,
-                totalTasksModel: const TotalTasksModel(
-                  totalTasks: 10,
-                  totalTasksFinish: 5,
-                ),
+                totalTasksModel:
+                    context.select<HomeController, TotalTasksModel?>(
+                        (controller) => controller.weekTotaltasks),
                 selected: context.select<HomeController, TaskFilterEnum>(
                         (value) => value.filterSelected) ==
                     TaskFilterEnum.week,
