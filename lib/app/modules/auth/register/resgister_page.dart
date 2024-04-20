@@ -39,7 +39,6 @@ class _ResgisterPageState extends State<ResgisterPage> {
       context: context,
       successCallback: (notifier, listenerNotifier) {
         listenerNotifier.dispose();
-        Navigator.of(context).pop();
       },
     );
   }

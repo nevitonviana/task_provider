@@ -18,6 +18,7 @@ class CalendarButton extends StatelessWidget {
         lastDate = lastDate.add(const Duration(days: 10 * 365));
         final DateTime? selectedDate = await showDatePicker(
             context: context, firstDate: DateTime(2000), lastDate: lastDate);
+        // ignore: use_build_context_synchronously
         context.read<TaskCreateController>().selectedDate = selectedDate;
       },
       borderRadius: BorderRadius.circular(30),

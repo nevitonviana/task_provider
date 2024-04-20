@@ -22,11 +22,13 @@ class Task extends StatelessWidget {
           title: const Text(
             "Descrição da TASK",
             style:
+                // ignore: dead_code
                 TextStyle(decoration: true ? TextDecoration.lineThrough : null),
           ),
           subtitle: const Text(
             "20/05/2025",
             style:
+                // ignore: dead_code
                 TextStyle(decoration: true ? TextDecoration.lineThrough : null),
           ),
           shape: RoundedRectangleBorder(
