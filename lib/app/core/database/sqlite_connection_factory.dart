@@ -30,17 +30,16 @@ class SqliteConnectionFactory {
       _DATABASE_NAME,
     );
     if (_db == null) {
-      _lock.synchronized(() async {
-        _db ??= await openDatabase(
-          databasePathFinal,
-          version: _VERSION,
-          onConfigure: _onConfigure,
-          onCreate: _onCreate,
-          onUpgrade: _onUpgrade,
-          onDowngrade: _onDowgreade,
-        );
-      });
+      _lock.synchronized(() async {});
     }
+    _db ??= await openDatabase(
+      databasePathFinal,
+      version: _VERSION,
+      onConfigure: _onConfigure,
+      onCreate: _onCreate,
+      onUpgrade: _onUpgrade,
+      onDowngrade: _onDowgreade,
+    );
     return _db!;
   }
 

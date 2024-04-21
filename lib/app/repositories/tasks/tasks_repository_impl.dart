@@ -14,6 +14,7 @@ class TasksRepositoryImpl implements TasksRepository {
     final conn = await _sqliteConnectionFactory.openConnection();
     await conn.insert(
       'todo',
+      // 'TODO_LIST_PROVIDER',
       {
         'id': null,
         "descricao": description,
@@ -30,9 +31,10 @@ class TasksRepositoryImpl implements TasksRepository {
 
     final conn = await _sqliteConnectionFactory.openConnection();
     final result = await conn.rawQuery('''
-select * form todo where data_hora between ? and ?
-order by data_hora
-''', [starFilter.toIso8601String(), endFilter.toIso8601String()]);
+    select * from todo
+    where data_hora between ? and ?
+    order by data_hora
+    ''', [starFilter.toIso8601String(), endFilter.toIso8601String()]);
     return result.map((e) => TaskModel.loadFormBD(e)).toList();
   }
 }
