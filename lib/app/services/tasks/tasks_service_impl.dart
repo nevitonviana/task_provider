@@ -41,4 +41,8 @@ class TasksServiceImpl implements TasksService {
     return WeekTaskModel(
         startDate: startFilter, endDate: endFilter, tasks: tasks);
   }
+
+  @override
+  Future<void> checkOrUncheckTask(TaskModel taskModel) =>
+      _tasksRepository.checkOrUncheckTask(taskModel);
 }
