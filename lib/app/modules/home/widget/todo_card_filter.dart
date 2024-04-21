@@ -34,7 +34,7 @@ class TodoCardFilter extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () =>
-          context.read<HomeController>().findTasks(filterEnum: taskFilterEnum),
+          context.read<HomeController>().findTasks(filter: taskFilterEnum),
       borderRadius: BorderRadius.circular(30),
       child: Container(
         constraints: const BoxConstraints(

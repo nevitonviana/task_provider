@@ -34,7 +34,9 @@ class TasksServiceImpl implements TasksService {
           startFilter.subtract(Duration(days: (startFilter.weekday - 1)));
     }
     endFilter = startFilter.add(const Duration(days: 7));
-    final tasks = await _tasksRepository.findByPeriod(startFilter, endFilter);
+    // final tasks = await _tasksRepository.findByPeriod(startFilter, endFilter);
+    final tasks =
+        await _tasksRepository.findByPeriod(DateTime.now(), endFilter);
 
     return WeekTaskModel(
         startDate: startFilter, endDate: endFilter, tasks: tasks);

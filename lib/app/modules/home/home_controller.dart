@@ -13,6 +13,8 @@ class HomeController extends DefaultChangeNotifier {
   TotalTasksModel? weekTotaltasks;
   List<TaskModel> allTasks = [];
   List<TaskModel> filteredTasks = [];
+  DateTime? initialDateOfWeek;
+  DateTime? selectedDay;
 
   HomeController({required TasksService tasksService})
       : _tasksService = tasksService;
@@ -43,12 +45,12 @@ class HomeController extends DefaultChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> findTasks({required TaskFilterEnum filterEnum}) async {
-    filterSelected = filterEnum;
+  Future<void> findTasks({required TaskFilterEnum filter}) async {
+    filterSelected = filter;
     showLoading();
     notifyListeners();
     List<TaskModel>? tasks;
-    switch (filterEnum) {
+    switch (filter) {
       case TaskFilterEnum.today:
         tasks = await _tasksService.getToday();
         break;
@@ -57,18 +59,33 @@ class HomeController extends DefaultChangeNotifier {
         break;
       case TaskFilterEnum.week:
         final weekmodel = await _tasksService.getweek();
+        initialDateOfWeek = weekmodel.startDate;
         tasks = weekmodel.tasks;
         break;
     }
 
     filteredTasks = tasks;
     allTasks = tasks;
+
+    if (filter == TaskFilterEnum.week) {
+      if (initialDateOfWeek != null) {
+        filterByDay(initialDateOfWeek!);
+      }
+    }
+
     hideLoading();
     notifyListeners();
   }
 
+  void filterByDay(DateTime date) {
+    selectedDay = date;
+    filteredTasks =
+        allTasks.where((task) => task.dateTime == selectedDay).toList();
+    notifyListeners();
+  }
+
   Future<void> refreshPage() async {
-    await findTasks(filterEnum: filterSelected);
+    await findTasks(filter: filterSelected);
     await loadTotalTasks();
     notifyListeners();
   }

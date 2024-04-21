@@ -113,9 +113,9 @@ class _LoginPageState extends State<LoginPage> {
                                             false;
                                     if (formValid) {
                                       context.read<LoginController>().login(
-                                            email: _emailEC.text,
-                                            password: _passwordEC.text,
-                                          );
+                                        email: _emailEC.text,
+                                        password: _passwordEC.text,
+                                      );
                                     }
                                   },
                                   style: ElevatedButton.styleFrom(
